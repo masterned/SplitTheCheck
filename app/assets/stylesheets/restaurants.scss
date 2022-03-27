@@ -99,3 +99,11 @@ section {
     grid-template-columns: 1fr 1fr;
     grid-auto-flow: column;
 }
+
+#edit-form .card {
+    background-color: #e6f4ff;
+}
+
+#create-form .card {
+    background-color: #e5ffe5;
+}
