@@ -37,6 +37,8 @@ class RestaurantsController < ApplicationController
 
   # PATCH/PUT /restaurants/1 or /restaurants/1.json
   def update
+    @is_edit = true
+
     respond_to do |format|
       if @restaurant.update(restaurant_params)
         format.html { redirect_to restaurant_url(@restaurant), notice: "Restaurant was successfully updated." }
