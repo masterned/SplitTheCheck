@@ -11,27 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <section>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :will_split_votes %>
-    <%= form.number_field :will_split_votes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :will_not_split_votes %>
-    <%= form.number_field :will_not_split_votes %>
-  </div>
+    <div class="field">
+      <%= form.label :location %>
+      <%= form.text_field :location %>
+    </div>
+  </section>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= button_to 'Cancel', restaurants_path, method: 'get' %>
