@@ -1,3 +1,72 @@
-// Place all the styles related to the Restaurants controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.table-container {
+    border: 1px solid black;
+    background-color: #a6d9ff;
+    border-radius: 3px;
+    height: 20em;
+}
+
+table {
+    border-collapse: collapse;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+
+    thead {
+        display: table;
+        flex: 0, 0, auto;
+        table-layout: fixed;
+        width: calc(100% - 1.3em);
+
+        tr {
+            background-color: #a6d9ff;
+
+            th {
+                border-left: 1px solid black;
+            }
+
+            th:first-child {
+                border-left: none;
+            }
+        }
+    }
+
+    tbody {
+        display: block;
+        flex: 1, 1, auto;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        tr {
+            background-color: #cce9ff;
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+
+            td {
+                border-right: 1px solid black;
+            }
+
+            form {
+                display: inline;
+                padding-left: 1em;
+
+                input {
+                    border-radius: 3px;
+                }
+
+                .will-split-button {
+                    background-color: #c3f7c8;
+                }
+
+                .wont-split-button {
+                    background-color: #ffd9d9;
+                }
+            }
+        }
+
+        tr:nth-child(even) {
+            background-color: #e6f4ff;
+        }
+    }
+}
