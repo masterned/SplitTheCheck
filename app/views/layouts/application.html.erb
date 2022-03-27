@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SplitTheCheck</title>
+    <title>Split the Check</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,12 +12,10 @@
 
   <body>
     <header>
-      <h1>
-        <%= image_tag("Banner.png", alt: 'Split The Check') %>
-      </h1>
+      <%= image_tag("Banner.png") %>
     <header>
 
-    <main>
+    <main class='<%= controller.controller_name %>'>
       <%= yield %>
     </main>
   </body>

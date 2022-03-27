@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
 
 <h1>Restaurants</h1>
 
@@ -7,27 +9,50 @@
     <tr>
       <th>Name</th>
       <th>Location</th>
-      <th>Will split votes</th>
-      <th>Will not split votes</th>
-      <th colspan="3"></th>
+      <th>"Will Split" Votes</th>
+      <th>"Won't Split" Votes</th>
     </tr>
   </thead>
 
   <tbody>
     <% @restaurants.each do |restaurant| %>
       <tr>
-        <td><%= restaurant.name %></td>
+        <td>
+          <a href=<%= restaurant_path(restaurant) %>><%= restaurant.name %></a>
+        </td>
         <td><%= restaurant.location %></td>
-        <td><%= restaurant.will_split_votes %></td>
-        <td><%= restaurant.will_not_split_votes %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= restaurant.will_split_votes %>
+          <%= button_to 'Vote "Will Split"' %>
+        </td>
+        <td>
+          <%= restaurant.will_not_split_votes %>
+          <%= button_to 'Vote "Won\'t Split"'%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<section>
+  <h2>Find a Restaurant</h2>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+  <%= form_with id: 'search_form', url: '/search' do |form| %>
+    <div class="form_group">
+      <%= form.label :query_name, 'Name:' %>
+      <%= form.text_field :query_name %>
+    </div>
+
+    <div class="form_group">
+      <%= form.label :query_location, 'Location:' %>
+      <%= form.text_field :query_location %>
+    </div>
+
+    <%= form.submit 'Search' %>
+  <% end %>
+</section>
+
+<section>
+  Is a restaurant missing from this list?
+  <%= button_to 'Add a Restaurant'%>
+</section>
