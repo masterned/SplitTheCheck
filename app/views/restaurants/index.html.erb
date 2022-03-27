@@ -39,18 +39,20 @@
 <section>
   <h2>Find a Restaurant</h2>
 
-  <%= form_with id: 'search_form', url: '/search' do |form| %>
-    <div class="form_group">
+  <%= form_with id: 'search-form', url: '/search' do |form| %>
+    <div class="form-group">
       <%= form.label :query_name, 'Name:' %>
       <%= form.text_field :query_name %>
     </div>
 
-    <div class="form_group">
+    <div class="form-group">
       <%= form.label :query_location, 'Location:' %>
       <%= form.text_field :query_location %>
     </div>
 
-    <%= form.submit 'Search' %>
+    <div class="form-group">
+      <%= form.submit 'Search' %>
+    </div>
   <% end %>
 </section>
 

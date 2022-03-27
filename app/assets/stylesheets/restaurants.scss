@@ -70,3 +70,18 @@ table {
         }
     }
 }
+
+#search-form {
+    .form-group {
+        display: inline;
+        padding: 1em;
+
+        * {
+            display: inline;
+        }
+    }
+}
+
+section {
+    margin: 2em 0;
+}
