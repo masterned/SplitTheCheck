@@ -94,6 +94,9 @@ section {
     border-radius: 5px;
     box-shadow: 1px 1px 3px #333;
     padding: 1em;
+}
+
+.quad-grid {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
@@ -106,4 +109,8 @@ section {
 
 #create-form .card {
     background-color: #e5ffe5;
+}
+
+#show-card {
+    background-color: rgb(250, 242, 233);
 }
