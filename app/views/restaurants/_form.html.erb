@@ -11,18 +11,11 @@
     </div>
   <% end %>
 
-  <section>
+  <section class="card">
     <div class="field">
       <%= form.label :name %>
       <%= form.text_field :name %>
     </div>
-
-    <% if @is_edit %>
-      <div class="field">
-        <%= form.label :will_split_votes %>
-        <%= form.number_field :will_split_votes %>
-      </div>
-    <% end %>
 
     <div class="field">
       <%= form.label :location %>
@@ -30,7 +23,12 @@
     </div>
 
     <% if @is_edit %>
-      <div class="field">
+      <div class="form-group">
+        <%= form.label :will_split_votes %>
+        <%= form.number_field :will_split_votes %>
+      </div>
+
+      <div class="form-group">
         <%= form.label :will_not_split_votes %>
         <%= form.number_field :will_not_split_votes %>
       </div>

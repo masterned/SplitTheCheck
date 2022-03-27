@@ -71,14 +71,12 @@ table {
     }
 }
 
-#search-form {
-    .form-group {
-        display: inline;
-        padding: 1em;
+.form-group {
+    display: inline;
+    padding: 1em;
 
-        * {
-            display: inline;
-        }
+    * {
+        display: inline;
     }
 }
 
@@ -89,4 +87,15 @@ section {
 #add-restaurant-section form {
     display: inline;
     padding-left: 1em;
+}
+
+.card {
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #333;
+    padding: 1em;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-flow: column;
 }
