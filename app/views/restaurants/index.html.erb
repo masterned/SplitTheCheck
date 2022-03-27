@@ -4,42 +4,50 @@
 
 <h1>Restaurants</h1>
 
-<div class="table-container">
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Location</th>
-        <th>"Will Split" Votes</th>
-        <th>"Won't Split" Votes</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @restaurants.each do |restaurant| %>
+<% if (@restaurants.nil? || @restaurants.empty?) %>
+  <div class="card">
+    <p>
+      <strong>No restaurants match the search query.</strong>
+    </p>
+  </div>
+<% else %>
+  <div class="table-container">
+    <table>
+      <thead>
         <tr>
-          <td>
-            <a href=<%= restaurant_path(restaurant) %>><%= restaurant.name %></a>
-          </td>
-          <td><%= restaurant.location %></td>
-          <td>
-            <%= restaurant.will_split_votes %>
-            <%= button_to 'Vote "Will Split"', restaurants_path, { class: 'will-split-button' } %>
-          </td>
-          <td>
-            <%= restaurant.will_not_split_votes %>
-            <%= button_to 'Vote "Won\'t Split"', restaurants_path, { class: 'wont-split-button' } %>
-          </td>
+          <th>Name</th>
+          <th>Location</th>
+          <th>"Will Split" Votes</th>
+          <th>"Won't Split" Votes</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+
+      <tbody>
+        <% @restaurants.each do |restaurant| %>
+          <tr>
+            <td>
+              <a href=<%= restaurant_path(restaurant) %>><%= restaurant.name %></a>
+            </td>
+            <td><%= restaurant.location %></td>
+            <td>
+              <%= restaurant.will_split_votes %>
+              <%= button_to 'Vote "Will Split"', restaurants_path, { class: 'will-split-button' } %>
+            </td>
+            <td>
+              <%= restaurant.will_not_split_votes %>
+              <%= button_to 'Vote "Won\'t Split"', restaurants_path, { class: 'wont-split-button' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
 <section>
   <h2>Find a Restaurant</h2>
 
-  <%= form_with id: 'search-form', url: '/search' do |form| %>
+  <%= form_with id: 'search-form', url: '/search', method: :get do |form| %>
     <div class="form-group">
       <%= form.label :query_name, 'Name:' %>
       <%= form.text_field :query_name %>

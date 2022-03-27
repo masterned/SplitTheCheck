@@ -50,6 +50,15 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def search
+    @restaurants = Restaurant.search(name: params[:query_name], location: params[:query_location])
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :index, status: :ok }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
