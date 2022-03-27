@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Restaurant Details</h1>
+
+<section>
+  <h2><%= @restaurant.name %></h2>
+
+  <p>Located in: <%= @restaurant.location %></p>
+
+  <p>
+    <%= @restaurant.will_split_votes %>
+    <%= @restaurant.will_split_votes == 1 ? 'person says' : 'people say' %>
+    <%= @restaurant.name %>
+    will split the check.
+  </p>
+
+  <p>
+    <%= @restaurant.will_not_split_votes %>
+    <%= @restaurant.will_not_split_votes == 1 ? 'person says' : 'people say' %>
+    <%= @restaurant.name %>
+    won't split the check.
+  </p>
+</section>
 
 <p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
+  Something wrong with this restaurant's details?
+  <%= link_to 'Edit this Restaurant', edit_restaurant_path(@restaurant) %>
 </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @restaurant.location %>
-</p>
-
-<p>
-  <strong>Will split votes:</strong>
-  <%= @restaurant.will_split_votes %>
-</p>
-
-<p>
-  <strong>Will not split votes:</strong>
-  <%= @restaurant.will_not_split_votes %>
-</p>
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= button_to 'Return to Restaurants List', restaurants_path, method: 'get' %>
