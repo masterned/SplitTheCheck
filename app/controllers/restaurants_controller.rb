@@ -17,6 +17,7 @@ class RestaurantsController < ApplicationController
 
   # GET /restaurants/1/edit
   def edit
+    @is_edit = true
   end
 
   # POST /restaurants or /restaurants.json

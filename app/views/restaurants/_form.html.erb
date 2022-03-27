@@ -17,10 +17,24 @@
       <%= form.text_field :name %>
     </div>
 
+    <% if @is_edit %>
+      <div class="field">
+        <%= form.label :will_split_votes %>
+        <%= form.number_field :will_split_votes %>
+      </div>
+    <% end %>
+
     <div class="field">
       <%= form.label :location %>
       <%= form.text_field :location %>
     </div>
+
+    <% if @is_edit %>
+      <div class="field">
+        <%= form.label :will_not_split_votes %>
+        <%= form.number_field :will_not_split_votes %>
+      </div>
+    <% end %>
   </section>
 
   <div class="actions">
@@ -28,4 +42,8 @@
   </div>
 <% end %>
 
-<%= button_to 'Cancel', restaurants_path, method: 'get' %>
+<% if @is_edit %>
+  <%= button_to 'Cancel', restaurant_path(@restaurant), method: 'get' %>
+<% else %>
+  <%= button_to 'Cancel', restaurants_path, method: 'get' %>
+<% end %>
