@@ -1,13 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  location: MyString
-  will_split_votes: 1
-  will_not_split_votes: 1
+gg_e:
+  name: "Garden Grill"
+  location: "EPCOT: The Lands"
+  will_split_votes: 0
+  will_not_split_votes: 0
 
-two:
-  name: MyString
-  location: MyString
-  will_split_votes: 1
-  will_not_split_votes: 1
+gg_t:
+  name: "Garden Grill"
+  location: Tifton
+  will_split_votes: 0
+  will_not_split_votes: 0
+
+ss_e:
+  name: "Sunshine Seasons"
+  location: "EPCOT: The Lands"
+  will_split_votes: 0
+  will_not_split_votes: 0
+
+s2_e:
+  name: "Space 220"
+  location: "EPCOT: Future World"
+  will_split_votes: 0
+  will_not_split_votes: 0
