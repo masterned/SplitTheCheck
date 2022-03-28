@@ -53,4 +53,9 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to restaurants_url
   end
+
+  test 'should search restaurants' do
+    get search_url, params: {name: "Garden", location: "EPCOT"}
+    assert_response :success
+  end
 end
