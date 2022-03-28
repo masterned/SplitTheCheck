@@ -3,8 +3,8 @@
 gg_e:
   name: "Garden Grill"
   location: "EPCOT: The Lands"
-  will_split_votes: 0
-  will_not_split_votes: 0
+  will_split_votes: 4
+  will_not_split_votes: 1
 
 gg_t:
   name: "Garden Grill"
