@@ -35,7 +35,7 @@
             <td><%= restaurant.location %></td>
             <td>
               <%= restaurant.will_split_votes %>
-              <%= button_to 'Vote "Will Split"', restaurants_path, { class: 'will-split-button' } %>
+              <%= button_to 'Vote "Will Split"', vote_will_split_path(restaurant), action: :vote_will_split, class: 'will-split-button' %>
             </td>
             <td>
               <%= restaurant.will_not_split_votes %>
