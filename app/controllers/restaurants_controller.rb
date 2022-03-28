@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[ show edit update vote_will_split ]
+  before_action :set_restaurant, only: %i[ show edit update vote_will_split vote_will_not_split ]
 
   # GET /restaurants or /restaurants.json
   def index
@@ -61,7 +61,19 @@ class RestaurantsController < ApplicationController
 
   def vote_will_split
     respond_to do |format|
-      if Restaurant.update(@restaurant[:id], :will_split_votes => @restaurant[:will_split_votes] + 1)
+      if @restaurant.update(:will_split_votes => @restaurant[:will_split_votes] + 1)
+        format.html { redirect_to restaurants_url, notice: "Thank you for voting!" }
+        format.json { render :index, status: :ok, location: @restaurant }
+      else
+        format.html { redirect_to restaurants_url, status: :unprocessable_entity, notice: "Something went wrong..." }
+        format.json { render :index, json: @restaurant.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def vote_will_not_split
+    respond_to do |format|
+      if @restaurant.update(:will_not_split_votes => @restaurant[:will_not_split_votes] + 1)
         format.html { redirect_to restaurants_url, notice: "Thank you for voting!" }
         format.json { render :index, status: :ok, location: @restaurant }
       else

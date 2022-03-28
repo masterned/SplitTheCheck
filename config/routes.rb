@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   post '/vote_will_split/:id', to: 'restaurants#vote_will_split', as: :vote_will_split
 
+  post '/vote_will_not_split/:id', to: 'restaurants#vote_will_not_split', as: :vote_will_not_split
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
