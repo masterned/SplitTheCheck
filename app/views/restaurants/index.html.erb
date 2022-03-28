@@ -7,7 +7,11 @@
 <% if (@restaurants.nil? || @restaurants.empty?) %>
   <div class="card">
     <p>
-      <strong>No restaurants match the search query.</strong>
+      <% if Restaurant.all.empty? %>
+        <strong>There are no restaurants in the table yet. Please add one.</strong>
+      <% else %>
+        <strong>No restaurants match the search query.</strong>
+      <% end %>
     </p>
   </div>
 <% else %>
@@ -50,16 +54,16 @@
   <%= form_with id: 'search-form', url: '/search', method: :get do |form| %>
     <div class="form-group">
       <%= form.label :query_name, 'Name:' %>
-      <%= form.text_field :query_name %>
+      <%= form.text_field :query_name, disabled: Restaurant.all.empty? %>
     </div>
 
     <div class="form-group">
       <%= form.label :query_location, 'Location:' %>
-      <%= form.text_field :query_location %>
+      <%= form.text_field :query_location, disabled: Restaurant.all.empty? %>
     </div>
 
     <div class="form-group">
-      <%= form.submit 'Search' %>
+      <%= form.submit 'Search', disabled: Restaurant.all.empty? %>
     </div>
   <% end %>
 </section>
