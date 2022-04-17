@@ -14,6 +14,10 @@
  *= require_self
  */
 
- #register-form .card {
-     background-color: aquamarine;
- }
+#register-form .card {
+    background-color: aquamarine;
+}
+
+#login-form .card {
+    background-color: salmon;
+}
