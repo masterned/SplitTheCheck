@@ -2,6 +2,8 @@ class Restaurant < ApplicationRecord
   validates :name, :location, presence: true
   validates :will_split_votes, :will_not_split_votes, allow_blank: true, numericality: { greater_than_or_equal_to: 0 }
 
+  has_many :votes, dependent: :destroy
+
   def self.search(name: nil, location: nil)
     if !name.nil? && !name.empty?
       if !location.nil? && !location.empty?
