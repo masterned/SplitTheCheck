@@ -35,11 +35,15 @@
             <td><%= restaurant.location %></td>
             <td>
               <%= restaurant.will_split_votes %>
-              <%= button_to 'Vote "Will Split"', vote_will_split_path(restaurant), action: :vote_will_split, class: 'will-split-button' %>
+              <% if user_signed_in? %>
+                <%= button_to 'Vote "Will Split"', vote_will_split_path(restaurant), action: :vote_will_split, class: 'will-split-button' %>
+              <% end %>
             </td>
             <td>
               <%= restaurant.will_not_split_votes %>
-              <%= button_to 'Vote "Won\'t Split"', vote_will_not_split_path(restaurant), action: :vote_will_not_split, class: 'wont-split-button' %>
+              <% if user_signed_in? %>
+                <%= button_to 'Vote "Won\'t Split"', vote_will_not_split_path(restaurant), action: :vote_will_not_split, class: 'wont-split-button' %>
+              <% end %>
             </td>
           </tr>
         <% end %>
@@ -70,5 +74,9 @@
 
 <section id="add-restaurant-section">
   Is a restaurant missing from this list?
-  <%= button_to 'Add a Restaurant', new_restaurant_path, method: 'get' %>
+  <% if user_signed_in? %>
+    <%= button_to 'Add a Restaurant', new_restaurant_path, method: 'get' %>
+  <% else %>
+    Please login to add it.
+  <% end%>
 </section>

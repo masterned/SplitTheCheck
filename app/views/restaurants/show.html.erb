@@ -26,7 +26,11 @@
 
 <p>
   Something wrong with this restaurant's details?
-  <%= link_to 'Edit this Restaurant', edit_restaurant_path(@restaurant) %>
+  <% if user_signed_in? %>
+    <%= link_to 'Edit this Restaurant', edit_restaurant_path(@restaurant) %>
+  <% else %>
+    Please login to edit.
+  <% end %>
 </p>
 
 <%= button_to 'Return to Restaurants List', restaurants_path, method: 'get' %>
