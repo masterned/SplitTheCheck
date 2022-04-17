@@ -1,0 +1,9 @@
+<aside id="user-status">
+    <% if user_signed_in? %>
+        <div><%= "Logged-in as: #{current_user.username}" %></div>
+        <span>Not you? <%= link_to 'Logout', destroy_user_session_path, method: :delete %></span>
+    <% else %>
+        <span><%= link_to 'Login', new_user_session_path %></span> |
+        <span><%= link_to 'Register', new_user_registration_path %></span>
+    <% end %>
+</aside>
