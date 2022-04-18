@@ -7,6 +7,10 @@ class RestaurantTest < ActiveSupport::TestCase
     assert_equal 1, restaurants(:gg_e).get_will_split_votes
   end
 
+  test 'gets number of "won\'t split" votes associated with the restaurant' do
+    assert_equal 2, restaurants(:gg_e).get_will_not_split_votes
+  end
+
   class SearchTest < ActiveSupport::TestCase
     test "returns all restaurants if both name & location are missing or blank" do 
       assert_equal Restaurant.all, Restaurant.search()
