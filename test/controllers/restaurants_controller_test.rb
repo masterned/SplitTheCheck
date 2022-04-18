@@ -14,6 +14,9 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
+    get edit_restaurant_url(@restaurant)
+    assert_redirected_to new_user_session_url
+
     sign_in @user
 
     get new_restaurant_url
@@ -21,6 +24,9 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create restaurant" do
+    get edit_restaurant_url(@restaurant)
+    assert_redirected_to new_user_session_url
+
     sign_in @user
 
     assert_difference('Restaurant.count') do
@@ -36,6 +42,9 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
+    get edit_restaurant_url(@restaurant)
+    assert_redirected_to new_user_session_url
+
     sign_in @user
 
     get edit_restaurant_url(@restaurant)
@@ -43,6 +52,9 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update restaurant" do
+    get edit_restaurant_url(@restaurant)
+    assert_redirected_to new_user_session_url
+
     sign_in @user
 
     patch restaurant_url(@restaurant), params: { restaurant: { location: @restaurant.location, name: @restaurant.name } }

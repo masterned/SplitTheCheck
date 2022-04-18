@@ -9,6 +9,10 @@ class VotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create vote" do
+    assert_no_difference('Vote.count') do
+      post votes_url, params: {  restaurant_id: @vote.restaurant_id, user_id: @vote.user_id, will_split?: @vote.will_split? }
+    end
+
     sign_in @user
     
     assert_difference('Vote.count') do
