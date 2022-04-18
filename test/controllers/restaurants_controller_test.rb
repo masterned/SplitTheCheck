@@ -17,7 +17,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create restaurant" do
     assert_difference('Restaurant.count') do
-      post restaurants_url, params: { restaurant: { location: @restaurant.location, name: @restaurant.name, will_not_split_votes: @restaurant.will_not_split_votes, will_split_votes: @restaurant.will_split_votes } }
+      post restaurants_url, params: { restaurant: { location: @restaurant.location, name: @restaurant.name } }
     end
 
     assert_redirected_to restaurant_url(Restaurant.last)
@@ -34,24 +34,8 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update restaurant" do
-    patch restaurant_url(@restaurant), params: { restaurant: { location: @restaurant.location, name: @restaurant.name, will_not_split_votes: @restaurant.will_not_split_votes, will_split_votes: @restaurant.will_split_votes } }
+    patch restaurant_url(@restaurant), params: { restaurant: { location: @restaurant.location, name: @restaurant.name } }
     assert_redirected_to restaurant_url(@restaurant)
-  end
-
-  test 'should increase "Will Split" votes on button press' do
-    assert_difference('Restaurant.find(@restaurant.id)[:will_split_votes]', 1) do
-      post vote_will_split_url(@restaurant)
-    end
-
-    assert_redirected_to restaurants_url
-  end
-
-  test 'should increase "Won\'t Split" votes on button press' do
-    assert_difference('Restaurant.find(@restaurant.id)[:will_not_split_votes]', 1) do
-      post vote_will_not_split_url(@restaurant)
-    end
-
-    assert_redirected_to restaurants_url
   end
 
   test 'should search restaurants' do

@@ -28,8 +28,7 @@ class VotesController < ApplicationController
         format.html { redirect_to restaurants_url, notice: "Vote was successfully created." }
         format.json { render :show, status: :created, location: @vote }
       else
-        format.html { render restaurants_url, status: :unprocessable_entity }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
+        format.html { render restaurants_url, notice: "Something went wrong." }
       end
     end
   end
