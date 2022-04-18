@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[ show edit update vote_will_split vote_will_not_split ]
+  before_action :set_restaurant, only: %i[ show edit update ]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /restaurants or /restaurants.json
