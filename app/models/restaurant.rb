@@ -19,4 +19,14 @@ class Restaurant < ApplicationRecord
       end
     end
   end
+
+  def get_will_split_votes
+    v = votes.to_a.select { |vote| vote.will_split? }
+    v.count
+  end
+
+  def get_will_not_split_votes
+    v = votes.to_a.select { |vote| !vote.will_split? }
+    v.count
+  end
 end
