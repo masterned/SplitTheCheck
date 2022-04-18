@@ -14,21 +14,21 @@ class VotesController < ApplicationController
   def new
     @vote = Vote.new
   end
-
+  
   # GET /votes/1/edit
   def edit
   end
-
+  
   # POST /votes or /votes.json
   def create
     @vote = Vote.new(vote_params)
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to vote_url(@vote), notice: "Vote was successfully created." }
+        format.html { redirect_to restaurants_url, notice: "Vote was successfully created." }
         format.json { render :show, status: :created, location: @vote }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render restaurants_url, status: :unprocessable_entity }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +65,6 @@ class VotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vote_params
-      params.require(:vote).permit(:user_id, :restaurant_id, :will_split?)
+      params.permit(:user_id, :restaurant_id, :will_split?)
     end
 end

@@ -34,13 +34,13 @@
             <td>
               <%= restaurant.will_split_votes %>
               <% if user_signed_in? %>
-                <%= button_to 'Vote "Will Split"', vote_will_split_path(restaurant), action: :vote_will_split, class: 'will-split-button' %>
+                <%= button_to 'Vote "Will Split"', votes_path(user_id: current_user, restaurant_id: restaurant, will_split?: true), class: 'will-split-button' %>
               <% end %>
             </td>
             <td>
               <%= restaurant.will_not_split_votes %>
               <% if user_signed_in? %>
-                <%= button_to 'Vote "Won\'t Split"', vote_will_not_split_path(restaurant), action: :vote_will_not_split, class: 'wont-split-button' %>
+                <%= button_to 'Vote "Won\'t Split"', votes_path(user_id: current_user, restaurant_id: restaurant, will_split?: false), class: 'wont-split-button' %>
               <% end %>
             </td>
           </tr>
