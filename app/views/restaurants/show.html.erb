@@ -8,15 +8,15 @@
   <p>Located in: <%= @restaurant.location %></p>
 
   <p>
-    <%= @restaurant.will_split_votes %>
-    <%= @restaurant.will_split_votes == 1 ? 'person says' : 'people say' %>
+    <%= @restaurant.get_will_split_votes %>
+    <%= @restaurant.get_will_split_votes() == 1 ? 'person says' : 'people say' %>
     <%= @restaurant.name %>
     will split the check.
   </p>
 
   <p>
-    <%= @restaurant.will_not_split_votes %>
-    <%= @restaurant.will_not_split_votes == 1 ? 'person says' : 'people say' %>
+    <%= @restaurant.get_will_not_split_votes %>
+    <%= @restaurant.get_will_not_split_votes() == 1 ? 'person says' : 'people say' %>
     <%= @restaurant.name %>
     won't split the check.
   </p>
