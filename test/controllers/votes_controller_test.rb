@@ -1,10 +1,6 @@
 require "test_helper"
 
 class VotesControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @vote = votes(:one)
-  end
-
   test "should create vote" do
     skip
     
