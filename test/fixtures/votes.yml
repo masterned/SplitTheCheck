@@ -1,11 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+one_gg_e:
   user: one
-  restaurant: one
+  restaurant: gg_e
+  will_split?: true
+
+two_gg_e:
+  user: two
+  restaurant: gg_e
   will_split?: false
 
-two:
-  user: two
-  restaurant: two
+three_gg_e:
+  user: three
+  restaurant: gg_e
   will_split?: false
+
+one_gg_t:
+  user: one
+  restaurant: gg_t
+  will_split?: true

@@ -6,8 +6,9 @@
 #
 one:
   email: "one@example.com"
-# column: value
-#
+
 two:
   email: "two@example.com"
-# column: value
+
+three:
+  email: "three@example.com"
