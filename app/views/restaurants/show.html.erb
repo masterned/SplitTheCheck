@@ -20,6 +20,9 @@
     <%= @restaurant.name %>
     won't split the check.
   </p>
+
+  <!-- Because textareas don't expect output, everyting needs to be on one line to show correctly... -->
+  <textarea readonly id="comments-output-box"><% @restaurant.comments.each do |comment| %><%= "#{comment}\n" %><% end %></textarea>
 </section>
 
 <p>
