@@ -1,17 +1,6 @@
-<p>
-  <strong>Body:</strong>
-  <%= @comment.body %>
-</p>
+<h2><%= @comment.restaurant.name %></h2>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user.username %>
-</p>
-
-<p>
-  <strong>Restaurant:</strong>
-  <%= @comment.restaurant.name %>
-</p>
+<p><%= @comment %></p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>
