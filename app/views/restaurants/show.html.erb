@@ -22,7 +22,9 @@
   </p>
 
   <!-- Because textareas don't expect output, everyting needs to be on one line to show correctly... -->
+  <h2>Comments</h2>
   <textarea readonly id="comments-output-box"><% @restaurant.comments.each do |comment| %><%= "#{comment}\n" %><% end %></textarea>
+  <%= button_to 'Add Comment', new_comment_path, params: {user_id: current_user, restaurant_id: @restaurant}, method: :get %>
 </section>
 
 <p>
