@@ -5,12 +5,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @comment.user_id %>
+  <%= @comment.user.username %>
 </p>
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @comment.restaurant_id %>
+  <%= @comment.restaurant.name %>
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
