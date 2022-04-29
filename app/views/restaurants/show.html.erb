@@ -25,7 +25,7 @@
   <h2>Comments</h2>
   <textarea readonly id="comments-output-box" title="I am not editable."><% @restaurant.comments.each do |comment| %><%= "#{comment}\n" %><% end %></textarea>
   <% if user_signed_in? %>
-    <%= button_to 'Add Comment', new_comment_path, params: {user_id: current_user, restaurant_id: @restaurant}, method: :get %>
+    <%= button_to 'Add Comment', new_comment_path, params: {user_id: current_user, restaurant_id: @restaurant}, method: :get, class: 'add-comment-button' %>
   <% end %>
 </section>
 
