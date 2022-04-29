@@ -30,11 +30,11 @@
 </section>
 
 <p>
-  Something wrong with this restaurant's details?
   <% if user_signed_in? %>
+    Something wrong with this restaurant's details?
     <%= link_to 'Edit this Restaurant', edit_restaurant_path(@restaurant) %>
   <% else %>
-    Please login to edit.
+    Please login to comment or edit details.
   <% end %>
 </p>
 
