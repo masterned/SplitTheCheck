@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
 
   has_many :votes, dependent: :destroy
+
+  has_many :favorites
+  has_many :restaurants, through: :favorites
 end

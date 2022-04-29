@@ -4,6 +4,9 @@ class Restaurant < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
+  has_many :favorites
+  has_many :users, through: :favorites
+
   def self.search(name: nil, location: nil)
     if !name.nil? && !name.empty?
       if !location.nil? && !location.empty?
