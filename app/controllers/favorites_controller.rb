@@ -26,7 +26,7 @@ class FavoritesController < ApplicationController
     @favorite.destroy
 
     respond_to do |format|
-      format.html { redirect_to favorites_url, notice: "Favorite was successfully destroyed." }
+      format.html { redirect_to restaurants_url, notice: "Restaurant was successfully unfavorited." }
       format.json { head :no_content }
     end
   end
@@ -34,7 +34,7 @@ class FavoritesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_favorite
-      @favorite = Favorite.find(params[:id])
+      @favorite = Favorite.find_by(user_id: params[:user_id], restaurant_id: params[:restaurant_id])
     end
 
     # Only allow a list of trusted parameters through.
