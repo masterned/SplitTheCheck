@@ -33,3 +33,14 @@
 #create-form .card {
     background-color: #e5ffe5;
 }
+
+.comment-area {
+    border-radius: 5px;
+    min-height: 6em;
+    width: 100%;
+
+    &.output {
+        background-color: #f7f7f7;
+        cursor: default;
+    }
+}
