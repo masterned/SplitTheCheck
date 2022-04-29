@@ -3,7 +3,7 @@
 <%= form_with(model: @comment, id: 'create-form') do |form| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
         <% @comment.errors.each do |error| %>
@@ -26,6 +26,6 @@
 
   <div class="actions">
     <%= form.submit %>
-    <%= button_to 'Cancel', restaurant_path(@restaurant), method: :get %>
+    <a href="<%= restaurant_path(@restaurant) %>"><button>Cancel</button></a>
   </div>
 <% end %>
