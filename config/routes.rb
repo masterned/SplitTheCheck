@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   resources :restaurants, only: [:index, :show, :new, :create, :edit, :update]
   resources :votes, only: [:create]
+  resources :comments
 
   get '/search', to: 'restaurants#search', as: 'search'
 
