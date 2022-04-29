@@ -30,6 +30,11 @@
           <tr>
             <td>
               <a href=<%= restaurant_path(restaurant) %>><%= restaurant.name %></a>
+              <% if user_signed_in? %>
+                <%= form_with url: favorites_path(user_id: current_user, restaurant_id: restaurant), method: :post do |form| %>
+                  <%= image_submit_tag 'hollow_star.svg', class: 'favorite-button' %>
+                <% end %>
+              <%end%>
             </td>
             <td><%= restaurant.location %></td>
             <td>
