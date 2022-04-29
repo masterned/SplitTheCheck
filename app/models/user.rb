@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   has_many :favorites
   has_many :restaurants, through: :favorites
+
+  def favorited? restaurant_id
+    restaurants.include? restaurant_id
+  end
 end
