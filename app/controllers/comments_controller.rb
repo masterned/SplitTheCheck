@@ -3,12 +3,14 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new(restaurant_id: params[:restaurant_id], user_id: params[:user_id])
-    @restaurant = @comment.restaurant
+    @comment = Comment.new()
+    session[:restaurant_id] = params[:restaurant_id]
+    @restaurant = Restaurant.find(session[:restaurant_id])
   end
 
   # POST /comments or /comments.json
   def create
+    params[:comment].merge!({restaurant_id: session[:restaurant_id], user_id: current_user.id})
     @comment = Comment.new(comment_params)
     @restaurant = @comment.restaurant
 
