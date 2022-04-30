@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   root to: 'restaurants#index'
   
   resources :restaurants, only: [:index, :show, :new, :create, :edit, :update]
-  resources :users, only: [:show]
   resources :votes, only: [:create]
   resources :comments, only: [:new, :create]
   resources :favorites, only: [:create]
+  
+  resource :user
 
   get '/search', to: 'restaurants#search', as: 'search'
   delete '/favorites', to: 'favorites#destroy', as: 'unfavorite'
