@@ -1,2 +1,46 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Your Summary</h1>
+
+<h2>Comments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.comments.each do |comment| %>
+      <tr>
+        <td><%= link_to comment.restaurant.name, restaurant_path(comment.restaurant) %></td>
+        <td><%= comment.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Votes</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Restaurant</th>
+      <th>Vote</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.votes.each do |vote| %>
+      <tr>
+        <td><%= link_to vote.restaurant.name, restaurant_path(vote.restaurant) %></td>
+        <td><%= vote.will_split? ? 'Will Split' : 'Won\'t Split' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Favorites</h2>
+<section>
+  <ul>
+    <% @user.favorites.each do |favorite| %>
+      <li><%= link_to favorite.restaurant.name, restaurant_path(favorite.restaurant) %></li>
+    <% end %>
+  </ul>
+</section>
