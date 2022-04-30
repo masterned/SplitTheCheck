@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create]
 
   get '/search', to: 'restaurants#search', as: 'search'
-  delete '/favorites', to: 'favorites#destroy', as: 'destroy'
+  delete '/favorites', to: 'favorites#destroy', as: 'unfavorite'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
