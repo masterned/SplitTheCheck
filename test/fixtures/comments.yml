@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: MyText
+  body: I am number one!
   user: one
   restaurant: gg_e
 
 two:
-  body: MyText
+  body: Who do I work for?
   user: two
   restaurant: gg_e

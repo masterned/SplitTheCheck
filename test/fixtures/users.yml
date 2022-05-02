@@ -6,9 +6,12 @@
 #
 one:
   email: "one@example.com"
+  username: "Mr. One"
 
 two:
   email: "two@example.com"
+  username: "Number 2"
 
 three:
   email: "three@example.com"
+  username: "Cookie"
