@@ -6,13 +6,13 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @comment = comments(:one)
     @user = users(:one)
-    @restaurant = restaurants(:gg_e)
+    @gg_e = restaurants(:gg_e)
   end
 
   test "should get new" do
     sign_in @user
 
-    get new_comment_url(restaurant_id: restaurants(:gg_e))
+    get new_comment_url(restaurant_id: @gg_e)
     assert_response :success
   end
 
@@ -20,7 +20,8 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     sign_in @user
 
     assert_difference('Comment.count') do
-      post comments_url, params: { comment: { body: @comment.body, restaurant_id: @comment.restaurant_id, user_id: @comment.user_id } }
+      get new_comment_url(restaurant_id: @gg_e)
+      post comments_url, params: { comment: { body: @comment.body } }
     end
 
     assert_redirected_to restaurant_url(Comment.last.restaurant_id)
