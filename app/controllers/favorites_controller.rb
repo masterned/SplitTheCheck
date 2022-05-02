@@ -1,10 +1,6 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_favorite, only: %i[ destroy ]
-
-  # GET /favorites or /favorites.json
-  def index
-    @favorites = Favorite.all
-  end
 
   # POST /favorites or /favorites.json
   def create
